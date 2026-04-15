@@ -13,6 +13,10 @@ app = Flask(__name__)
 with open('model/model.pkl', 'rb') as f:
     model = pickle.load(f)
 
+@app.route('/')
+def home():
+    return "ML Model is Running"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
